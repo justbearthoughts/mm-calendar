@@ -1,0 +1,9 @@
+[Unit]
+Description=Run {{ SERVICE_NAME }} daily
+
+[Timer]
+OnCalendar=Mon..Fri 10:35
+Persistent=true
+
+[Install]
+WantedBy=timers.target

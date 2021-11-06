@@ -1,0 +1,17 @@
+[Unit]
+Description={{ SERVICE_NAME }}
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User={{ USER }}
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory={{ WORKING_DIR }}
+ExecStart={{ VENV PYTHON BINARY PATH }} {{ VENV PYTHON PATH }}/mm-calendar.py
+StandardOutput=syslog
+StandardErroru=syslog
+SyslogIdentifier={{ SERVICE_NAME }}
+
+[Install]
+WantedBy=multi-user.target
